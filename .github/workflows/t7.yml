@@ -20,7 +20,7 @@ env:
 
 jobs:
    build:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     permissions:
       contents: write
 
@@ -46,6 +46,9 @@ jobs:
         libreadline-dev libssl-dev libtool llvm lrzsz msmtp ninja-build p7zip p7zip-full patch pkgconf \
         python3 python3-pyelftools python3-setuptools qemu-utils rsync scons squashfs-tools subversion \
         swig texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
+        sudo apt -y autoremove --purge
+        sudo apt -y clean
+        
     - name: 克隆源码
       working-directory: /workdir
       run: |
